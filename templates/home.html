@@ -1,0 +1,12 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+    {% include "banner.html" %}
+    
+    {% for section in page.params.sections %}
+        {% set include_dict = {'section': section, 'site': site, 'page': page} %}
+        {% include section.component %}
+    {% endfor %}
+
+{% endblock %}

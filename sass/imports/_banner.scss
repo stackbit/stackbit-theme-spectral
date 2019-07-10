@@ -1,0 +1,15 @@
+body.has-theme-bar {
+    #page-wrapper{
+        margin-top: 60px;
+    }
+
+    #header{
+        position: fixed;
+        top: 60px;
+    }
+
+    #theme-bar{
+        position: fixed;
+        top: 0;
+    }
+}

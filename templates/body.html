@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+        
+        {% include "header.html" %}
+        
+        {% block content %}{% endblock %}
+        
+        {% include "footer.html" %}
+        
+    </div>
+{% endblock %}

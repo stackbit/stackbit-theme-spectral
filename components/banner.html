@@ -1,0 +1,19 @@
+<!-- Banner -->
+<section id="banner">
+    <div class="inner">
+        <h2>{{ page.params.banner.title }}</h2>
+        {% if page.params.banner.subtitle %}
+            {{ page.params.banner.subtitle | markdownify }}
+        {% endif %}
+        {% if page.params.banner.actions %}
+            <ul class="actions special">
+                {% for action in page.params.banner.actions %}
+                    <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" {{ classNames("button", {"primary": action.is_primary}, {"scrolly": action.is_scrolly}) }}>{{ action.label }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    {% if page.params.banner.bottom_link %}
+        <a href="{% if page.params.banner.bottom_link.url | starts_with('#') %}{{ page.params.banner.bottom_link.url }}{% else %}{{ page.params.banner.bottom_link.url | link | relative_url }}{% endif %}" {{ classNames({"more": page.params.banner.bottom_link.has_arrow}, {"scrolly": page.params.banner.bottom_link.is_scrolly}) }}>{{ page.params.banner.bottom_link.label }}</a>
+    {% endif %}
+</section>

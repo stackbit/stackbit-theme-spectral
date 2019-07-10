@@ -1,0 +1,16 @@
+<!-- One -->
+<section id="{{ include_dict.section.section_id }}" class="wrapper {{ include_dict.section.background_style }} special">
+    <div class="inner">
+        <header class="major">
+            <h2>{{ include_dict.section.title | nl2br | safe }}</h2>
+            {{ include_dict.section.subtitle | markdownify }}
+        </header>
+        {% if include_dict.section.feature_icons %}
+            <ul class="icons major">
+                {% for item in include_dict.section.feature_icons %}
+                    <li><span class="icon {{ item.icon }} major {{ item.style }}"><span class="label">{{ item.title }}</span></span></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</section>

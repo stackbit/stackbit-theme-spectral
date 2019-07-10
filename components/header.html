@@ -1,0 +1,21 @@
+<!-- Header -->
+<header id="header" {{ classNames({"alt": page.params.template == "home"}) }}>
+    <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+    <nav id="nav">
+        <ul>
+            <li class="special">
+                <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                <div id="menu">
+                    <ul>
+                        {% for item in site.menus.main %}
+                            <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
+                        {% endfor %}
+                        {% for action in site.data.menu.actions %}
+                            <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}">{{ action.label }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>

@@ -1,0 +1,14 @@
+<!-- Two -->
+<section id="{{ include_dict.section.section_id }}" class="wrapper alt {{ include_dict.section.background_style }}">
+    {% for spotlight in include_dict.section.spotlights %}
+        <section class="spotlight">
+            {% if spotlight.home_img_path %}
+                <div class="image"><img src="{{ spotlight.home_img_path | relative_url }}" alt="" /></div>
+            {% endif %}
+            <div class="content">
+                <h2>{{ spotlight.title | nl2br | safe }}</h2>
+                {{ spotlight.text | markdownify }}
+            </div>
+        </section>
+    {% endfor %}
+</section>

@@ -1,0 +1,16 @@
+<!-- CTA -->
+<section id="{{ include_dict.section.section_id }}" class="wrapper {{ include_dict.section.background_style }}">
+    <div class="inner">
+        <header>
+            <h2>{{ include_dict.section.title | nl2br | safe }}</h2>
+            {{ include_dict.section.text | markdownify }}
+        </header>
+        {% if include_dict.section.actions %}
+            <ul class="actions stacked">
+                {% for action in include_dict.section.actions %}
+                    <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}" {{ classNames("button", "fit", {"primary": action.is_primary}, {"scrolly": action.is_scrolly}) }}>{{ action.label }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</section>

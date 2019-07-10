@@ -1,0 +1,5 @@
+actions:
+  - label: Sign Up
+    url: generic.md
+  - label: Log In
+    url: generic.md

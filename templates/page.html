@@ -1,0 +1,18 @@
+{% extends "body.html" %}
+
+{% block content %}
+
+    <!-- Main -->
+    <article id="main">
+        <header>
+            <h2>{{ page.title }}</h2>
+            {{ page.params.subtitle | markdownify }}
+        </header>
+        <section class="wrapper {{ page.params.background_style }}">
+            <div class="inner">
+                {{ page.content }}
+            </div>
+        </section>
+    </article>
+
+{% endblock %}

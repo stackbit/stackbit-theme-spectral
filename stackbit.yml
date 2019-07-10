@@ -1,0 +1,453 @@
+stackbitVersion: ~0.2.34
+uploadDir: images
+metadata:
+  title: Spectral
+  description: a multipage theme
+  author: Pixelarity
+  authorURL: 'https://pixelarity.com'
+  palettes:
+    blue:
+      images:
+        small: images/demo-blue-256x192.png
+        large: images/demo-blue-1024x768.png
+    green:
+      images:
+        small: images/demo-green-256x192.png
+        large: images/demo-green-1024x768.png
+models:
+  config:
+    type: config
+    label: config
+    fields:
+      - type: string
+        name: landing_template
+        label: Landing Template
+        default: home
+        hidden: true
+        required: true
+      - type: enum
+        name: palette
+        label: Color Palette
+        options:
+          - blue
+          - green
+        required: true
+        default: blue
+        description: The color palette used for the site.
+      - type: object
+        name: palettes
+        label: Palettes
+        hidden: true
+        fields:
+          - type: palette
+            name: blue
+            label: Blue
+          - type: palette
+            name: green
+            label: Green
+  menu:
+    type: data
+    file: menu.yml
+    label: Menu Configuration
+    fields:
+      - type: list
+        name: actions
+        label: Menu Action Buttons
+        description: The action buttons displayed below the menu entries
+        items:
+          type: object
+          labelField: label
+          fields:
+            - type: string
+              name: label
+              label: Button Label
+              required: true
+              description: The text displayed inside the button
+            - type: string
+              name: url
+              label: Button URL
+              widget: url
+  footer:
+    type: data
+    file: footer.yml
+    label: Footer Configuration
+    fields:
+      - type: list
+        name: social_icons
+        label: Social Mediaa Icons
+        description: A list of social media icons displayed in tyhe page footer
+        items:
+          type: object
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Icon Title
+              required: true
+            - type: string
+              name: icon
+              label: Icon
+              required: true
+              description: Font Awesome Icon
+            - type: string
+              name: url
+              label: Icon URL
+              widget: url
+      - type: string
+        name: copyright
+        label: Copyright Text
+        description: The copyright text displayed at the bottom of the page footer
+      - type: list
+        name: links
+        label: Links
+        description: A list of links displayed in the footer.
+        items:
+          type: object
+          labelField: text
+          fields:
+            - type: string
+              name: text
+              label: Link text
+            - type: string
+              name: url
+              label: URL
+              widget: url
+            - type: boolean
+              name: new_window
+              label: Open in new window
+              default: true
+  home:
+    type: page
+    label: Home
+    hideContent: true
+    singleInstance: true
+    file: index.md
+    template: home
+    fields:
+      - type: string
+        name: title
+        label: Page Title
+        required: true
+      - type: object
+        name: banner
+        label: Page Banner
+        description: The banner displayed at the top of the landing page
+        fields:
+          - type: string
+            name: title
+            label: Banner Title
+            required: true
+          - type: markdown
+            name: subtitle
+            label: Banner Subtitle
+            description: The text displayed below the banner title
+          - type: list
+            name: actions
+            label: Banner Action Buttons
+            items:
+              type: action
+          - type: object
+            name: bottom_link
+            label: Bottom Action
+            description: The action button displayed at the very bottom of the page banner
+            fields:
+              - type: string
+                name: label
+                label: Button Label
+                description: The text displayed inside the action button
+              - type: string
+                name: url
+                label: Button URL
+                widget: url
+              - type: boolean
+                name: has_arrow
+                label: Has Arrow
+                default: false
+                description: Displays a downward pointing arrow below the button text
+              - type: boolean
+                name: is_scrolly
+                label: Is Scrolly
+                default: false
+                description: >-
+                  gives the button a scroll animation (if the button url is a
+                  section ID)
+      - type: list
+        name: sections
+        label: Sections
+        description: Home Sections
+        items:
+          type: reference
+          labelField: title
+          models:
+            - icons
+            - spotlights
+            - features
+            - cta
+  page:
+    type: page
+    label: Page
+    template: page
+    fields:
+      - type: string
+        name: title
+        label: Page Title
+        required: true
+        description: The bold first line of text displayed in the page banner
+      - type: markdown
+        name: subtitle
+        label: Page Subtitle
+        description: The text displayed below the page title
+      - type: enum
+        name: background_style
+        label: Page Background Style
+        options:
+          - style1
+          - style2
+          - style3
+          - style4
+          - style5
+        default: style5
+        description: Controls the page background color
+  elements:
+    type: page
+    label: Elements
+    hideContent: true
+    template: elements
+    singleInstance: true
+    file: elements.md
+    fields:
+      - type: string
+        name: title
+        label: Page Title
+        required: true
+        description: The bold first line of text displayed in the page banner
+      - type: markdown
+        name: subtitle
+        label: Page Subtitle
+        description: The text displayed below the page title
+  palette:
+    type: object
+    label: Palette
+    fields:
+      - type: object
+        name: sass
+        label: SASS
+        fields:
+          - type: color
+            name: accent1
+            label: accent1
+          - type: color
+            name: accent2
+            label: accent2
+          - type: color
+            name: accent3
+            label: accent3
+          - type: color
+            name: accent4
+            label: accent4
+          - type: color
+            name: accent5
+            label: accent5
+          - type: color
+            name: accent6
+            label: accent6
+  action:
+    type: object
+    label: Action
+    labelField: label
+    fields:
+      - type: string
+        name: label
+        label: Button Label
+        required: true
+        description: The text displayed inside the action button
+      - type: string
+        name: url
+        label: Button URL
+        widget: url
+      - type: boolean
+        name: is_scrolly
+        label: Is Scrolly
+        default: false
+        description: >-
+          Gives the button a scroll animation (if the button url is a section
+          ID)
+      - type: boolean
+        name: is_primary
+        label: Is Primary
+        default: false
+        description: Gives the button a primary color scheme
+  section:
+    type: object
+    label: Section
+    labelField: title
+    fields:
+      - type: string
+        name: title
+        label: Section Title
+        required: true
+        description: >-
+          The title displayed at the top of the section (If the section does not
+          have a title, it is used by the CMS)
+      - type: string
+        name: section_id
+        label: Section ID
+        required: true
+      - type: enum
+        name: background_style
+        label: Background Style
+        options:
+          - style1
+          - style2
+          - style3
+          - style4
+        default: style1
+        description: The style used for the section background
+      - type: string
+        name: component
+        label: Section Component
+        required: true
+        hidden: true
+  icons:
+    type: object
+    label: Icons Section
+    extends:
+      - section
+    fields:
+      - name: title
+        default: Icons Section
+      - type: markdown
+        name: subtitle
+        label: Section Subtitle
+        description: The text displayed below the section title
+      - name: section_id
+        default: one
+      - name: background_style
+        default: style1
+      - type: list
+        name: feature_icons
+        label: Section Icons
+        description: A list of icons displayed along the bottom of the section
+        items:
+          type: object
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Icon Title
+              required: true
+            - type: string
+              name: icon
+              label: Icon
+              required: true
+              description: Font Awesome icon
+            - type: enum
+              name: style
+              label: Icon Style
+              options:
+                - style1
+                - style2
+                - style3
+              description: Controls the icon color
+      - name: component
+        const: icons.html
+  spotlights:
+    type: object
+    label: Spotlights Section
+    extends:
+      - section
+    fields:
+      - name: title
+        default: Spotlights Section
+      - name: section_id
+        default: two
+      - name: background_style
+        default: style2
+      - type: list
+        name: spotlights
+        label: Spotlights
+        description: A list of spotlights to be displayed in the section
+        items:
+          type: object
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Spotlight title
+              required: true
+            - type: markdown
+              name: text
+              label: Spotlight text
+              description: The text displayed below the spotlight title
+            - type: image
+              name: home_img_path
+              label: Spotlight Image
+              description: The image displayed next to the spotlight content
+      - name: component
+        const: spotlights.html
+  features:
+    type: object
+    label: Features Section
+    extends:
+      - section
+    fields:
+      - name: title
+        default: Features Section
+      - type: markdown
+        name: subtitle
+        label: Section Subtitle
+        description: The text displayed below the section title
+      - name: section_id
+        default: three
+      - name: background_style
+        default: style3
+      - type: list
+        name: features
+        label: Features
+        description: A list of features to be displayed in the section
+        items:
+          type: object
+          labelField: title
+          fields:
+            - type: string
+              name: title
+              label: Feature Title
+              required: true
+            - type: markdown
+              name: text
+              label: Feature Text
+              description: The text displayed below the feature title
+            - type: string
+              name: icon
+              label: Feature Icon
+              description: (Font Awesom icon) The icon displayed with the feature content
+      - name: component
+        const: features.html
+  cta:
+    type: object
+    label: CTA Section
+    extends:
+      - section
+    fields:
+      - name: title
+        default: CTA Section
+      - type: markdown
+        name: text
+        label: Section Text
+        description: The text displayed below the section title
+      - name: section_id
+        default: cta
+      - name: background_style
+        default: style4
+      - type: list
+        name: actions
+        label: Section Action Buttons
+        items:
+          type: action
+      - name: component
+        const: cta.html
+stackbit_banner:
+  show_banner: true
+  name: Spectral
+  create_url: 'https://app.stackbit.com/wizard?theme=spectral'
+  github_url: 'https://github.com/stackbithq/stackbit-theme-spectral'
