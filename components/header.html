@@ -11,7 +11,7 @@
                             <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
                         {% endfor %}
                         {% for action in site.data.menu.actions %}
-                            <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | link | relative_url }}{% endif %}">{{ action.label }}</a></li>
+                            <li><a href="{% if action.url | starts_with('#') %}{{ action.url }}{% else %}{{ action.url | relative_url }}{% endif %}">{{ action.label }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>

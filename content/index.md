@@ -8,7 +8,7 @@ banner:
     blandit at Interdum.
   actions:
     - label: Activate
-      url: generic.md
+      url: "/generic"
       is_scrolly: false
       is_primary: true
   bottom_link:
@@ -91,11 +91,11 @@ sections:
     background_style: style4
     actions:
       - label: Activate
-        url: generic.md
+        url: "/generic"
         is_primary: true
         is_scrolly: false
       - label: Learn More
-        url: generic.md
+        url: "/generic"
         is_primary: false
         is_scrolly: false
     type: cta
