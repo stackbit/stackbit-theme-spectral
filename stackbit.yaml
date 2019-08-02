@@ -449,5 +449,7 @@ models:
 stackbit_banner:
   show_banner: true
   name: Spectral
-  create_url: 'https://app.stackbit.com/wizard?theme=spectral'
+  create_url: 'https://app.stackbit.com/create?theme=spectral'
   github_url: 'https://github.com/stackbithq/stackbit-theme-spectral'
+pagesDir: content
+staticDir: static
