@@ -1,5 +1,12 @@
-stackbitVersion: ~0.2.34
+stackbitVersion: ~0.2.0
+ssgName: unibit
+buildCommand: unibit build
+publishDir: output
+staticDir: static
 uploadDir: images
+dataDir: data
+pagesDir: content
+pageLayoutKey: layout
 metadata:
   title: Spectral
   description: a multipage theme
@@ -451,5 +458,3 @@ stackbit_banner:
   name: Spectral
   create_url: 'https://app.stackbit.com/create?theme=spectral'
   github_url: 'https://github.com/stackbithq/stackbit-theme-spectral'
-pagesDir: content
-staticDir: static
