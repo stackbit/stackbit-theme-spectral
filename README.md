@@ -2,9 +2,12 @@
 
 A multipage theme for Stackbit. [Live Demo](https://themes.stackbit.com/demos/spectral/blue)
 
-Click the button below to use this theme in Gatsby, Hugo or Jekyll via the Stackbit site builder:
+This theme is deprecated and will no longer be maintained by Stackbit. 
+Stackbit launched a new major version that brings a superior developer experience and visual editing capabilities.
 
-[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?theme=https://github.com/stackbithq/stackbit-theme-spectral)
+Click the button below to create a new website using the new version of Stackbit.
+
+[![Create with Stackbit](https://assets.stackbit.com/badge/create-with-stackbit.svg)](https://app.stackbit.com/create?utm_source=theme-readme&utm_medium=referral&utm_campaign=stackbit_themes)
 
 ### About Stackbit
 
